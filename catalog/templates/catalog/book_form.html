@@ -1,0 +1,14 @@
+<!--The "create" and "update" views use the same template by default, which will be named after your model: model_name_form.html (you can change the suffix to something other than _form using the template_name_suffix field in your view, for example template_name_suffix = '_other_suffix') -->
+
+{%extends "base_generic.html"%}
+
+{%block content%}
+<form action="" method="post">  
+    {%csrf_token%} 
+    <!-- we declare the {% csrf_token %} to ensure that our forms are resistant to CSRF attacks. -->
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="Submit">
+</form>
+{%endblock%}

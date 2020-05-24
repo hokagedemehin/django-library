@@ -1,0 +1,24 @@
+{%extends "base_generic.html"%}
+
+{% block content %}
+<h1>Renew: {{book_instance.book.title}}</h1>
+<p>Borrower: {{book_instance.borrower}}</p>
+<p {% if book_instance.is_overdue %} class="text-danger" {% endif %}>Due date</p>
+
+<form action="" method="post">
+    <!-- The {% csrf_token %} added just inside the form tags is part of Django's cross-site forgery protection. -->
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+<!-- You can also render each field as a list item (using {{ form.as_ul }} ) or as a paragraph (using {{ form.as_p }}). -->
+<!-- {{ form.renewal_date }}: The whole field.
+{{ form.renewal_date.errors }}: The list of errors.
+{{ form.renewal_date.id_for_label }}: The id of the label.
+{{ form.renewal_date.help_text }}: The field help text. -->
+    
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

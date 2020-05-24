@@ -1,0 +1,23 @@
+{%extends "base_generic.html" %}
+
+{%block title%}
+<title>Ibk Library</title>
+{%endblock%}
+
+{%block content%}
+    <h1>Local Library Home</h1>
+    <p>Welcome to LocalLibrary, a website developed by <em>Demehin Developer Network</em>!</p>
+    <h2>Dynamic Content</h2>
+    <p>The library has the following record counts:</p>
+    <ul>
+        <!-- variables are named with the keys that we pass into the context dictionary in the render() function of our view  -->
+        <li><strong>Books:</strong> {{num_books}}</li>
+        <li><strong>Copies:</strong> {{num_instances}}</li>
+        <li><strong>Copies available:</strong> {{num_instances_available}}</li>
+        <li><strong>Authors:</strong> {{num_authors}}</li>
+        <li><Strong>Genre:</Strong> {{num_genre}}</li>
+        <li><strong>Specific Books:</strong> {{num_books_count}}</li>
+    </ul>
+
+    <p>You have visited this page {{num_visits }} {%if num_visits == 1%} time {%else%} times {%endif%}.</p>
+    {%endblock%}
